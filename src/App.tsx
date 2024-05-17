@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterFieldForm from "./components/RegisterFieldForm";
+import IntegrateUILibForm from "./components/IntegrateUILibForm";
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Learn React Hook From </h1>
-        <RegisterFieldForm />
+        <IntegrateUILibForm />
       </header>
     </div>
   );
