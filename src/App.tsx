@@ -1,5 +1,6 @@
 import React from 'react';
-import IntegrateUILibForm from "./components/IntegrateUILibForm";
+
+import SchemaValidationForm from "./components/SchemaValidationForm";
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Learn React Hook From </h1>
-        <IntegrateUILibForm />
+        <SchemaValidationForm />
       </header>
     </div>
   );

@@ -1,58 +1,54 @@
-import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {Input} from "@mui/material"
 import Select from "react-select"
+import {useForm, Controller, SubmitHandler} from "react-hook-form"
+import {Input} from "@mui/material"
 
-interface IFormInput {
+interface IFormInput
+{
     firstName: string
     lastName: string
-    iceCreamType: { label: string, value: string }
+    iceCream: {
+        label: string
+        value: number
+    }
 }
-
 const IntegrateUILibForm = () => {
-    const {control, handleSubmit} = useForm<IFormInput>({
+    const {control, handleSubmit} = useForm({
         defaultValues: {
-            firstName: '',
-            lastName: '',
-            iceCreamType: {}
+            firstName:"",
+            lastName:"",
+            iceCream:{ label: "", value: -1},
         }
-    });
+    })
 
     const onSubmit: SubmitHandler<IFormInput> = (data) => {
-        console.log(data);
+        console.log(data)
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <Controller
-                    name="firstName"
-                    control={control}
-                    render={({field}) => <Input {...field} />}
-                />
-            </div>
-            <div>
-                <Controller
-                    name="lastName"
-                    control={control}
-                    render={({field}) => <Input {...field} />}
-                />
-            </div>
-
             <Controller
-                name="iceCreamType"
+                name="firstName"
+                control={control}
+                render={({field}) => <Input {...field} />}/>
+            <Controller
+                name="lastName"
+                control={control}
+                render={({field}) => <Input {...field}/>}/>
+            <Controller
+                name="iceCream"
                 control={control}
                 render={({field}) => (
                     <Select
                         {...field}
-                        options={[
-                            {value: "chocolate", label: "Chocolate"},
-                            {value: "strawberry", label: "Strawberry"},
-                            {value: "vanilla", label: "Vanilla"},
+                        options = {[
+                            { value: 0, label: "Chocolate"},
+                            { value: 1, label: "Banana"},
+                            { value: 2, label: "Mango"},
                         ]}
                     />
                 )}
             />
-            <input type="submit"/>
+            <input type="submit" />
         </form>
     );
 }
